@@ -52,7 +52,7 @@ export function QuickLinks() {
                 <CardHeader className='pb-4'>
                     <CardTitle className="text-xl font-semibold">Quick Links</CardTitle>
                 </CardHeader>
-                <CardContent className="px-4 rounded-xl flex flex-col gap-4">
+                <CardContent className="px-4 rounded-xl flex flex-col gap-2">
                     {quickLinks.map((link, index) => (
                         <button
                             key={index}
