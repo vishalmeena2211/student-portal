@@ -8,7 +8,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import VideoConference from './video-conference'
 import { Recording } from '@/lib/types'
-import { recordings } from '@/lib/static'
+
+// Sample recordings data
+const recordings: Recording[] = [
+    { title: "Algebraic Equations", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
+    { title: "Differential Maths", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
+    { title: "Organic Chemistry", subject: "Class 7 Science", color: "bg-purple-100", img: "/Mask group pink.png" },
+    { title: "Trigonometry 101", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
+]
+
 
 
 export function ClassRecordings() {

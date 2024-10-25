@@ -1,10 +1,38 @@
 "use client"
 
 import React, { useState } from 'react'
-import { BellIcon, Calendar } from 'lucide-react'
+import { BellIcon, Book, Calendar, MessageCircle } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { quickLinks } from '@/lib/static'
+
+// Define the quick links data
+
+const quickLinks = [
+    {
+        icon: Book,
+        title: "Canvas LMS",
+        description: "Click here to access your LMS portal for assignments, class recordings and notes.",
+        color: "bg-[#6366F1]",
+        hoverColor: "hover:bg-white hover:text-[#6366F1]",
+        newOrder: "2"
+    },
+    {
+        icon: Calendar,
+        title: "Join Live Class",
+        description: "Click here to join your live class session. Please do not share this link.",
+        color: "bg-[#EC4899]",
+        hoverColor: "hover:bg-white hover:text-[#EC4899]",
+        newOrder: "1"
+    },
+    {
+        icon: MessageCircle,
+        title: "Contact Teacher",
+        description: "Click here to contact your teacher for any doubts or concerns.",
+        color: "bg-[#818CF8]",
+        hoverColor: "hover:bg-white hover:text-[#818CF8]",
+        newOrder: "3"
+    }
+]
 
 export function QuickLinks() {
     // State to manage the dialog open status
