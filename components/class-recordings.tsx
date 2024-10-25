@@ -13,7 +13,7 @@ import { Recording } from '@/lib/types'
 const recordings: Recording[] = [
     { title: "Algebraic Equations", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
     { title: "Differential Maths", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
-    { title: "Organic Chemistry", subject: "Class 7 Science", color: "bg-purple-100", img: "/Mask group pink.png" },
+    { title: "Organic Chemistry", subject: "Class 7 Science", color: "bg-[#E66DFF]", img: "/Mask group pink.png" },
     { title: "Trigonometry 101", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
 ]
 
@@ -42,13 +42,13 @@ export function ClassRecordings() {
                 <CardContent className="p-4 bg-white py-6 flex flex-col gap-4 rounded-2xl">
                     <div className="relative">
                         <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                        <Input placeholder="Search for class recordings" className="pl-10 bg-white" />
+                        <Input placeholder="Search for class recordings" className="pl-10 bg-[#F3F4FF]" />
                     </div>
                     <div className="flex justify-between items-center">
                         <span className="text-sm text-gray-500">Filter By:</span>
                         <div className="md:space-x-2 space-x-1 flex">
                             <Select defaultValue="this-week">
-                                <SelectTrigger className="md:w-[120px] w-[90px] bg-white">
+                                <SelectTrigger className="md:w-[120px] w-[90px] bg-[#F3F4FF]">
                                     <SelectValue placeholder="This week" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -58,7 +58,7 @@ export function ClassRecordings() {
                                 </SelectContent>
                             </Select>
                             <Select defaultValue="all-subjects">
-                                <SelectTrigger className="md:w-[120px] w-[90px] bg-white">
+                                <SelectTrigger className="md:w-[120px] w-[90px] bg-[#F3F4FF]">
                                     <SelectValue placeholder="All subjects" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -72,14 +72,14 @@ export function ClassRecordings() {
                     {recordings.map((recording, index) => (
                         <div
                             key={index}
-                            className={`flex items-center justify-between p-2 border-b border-gray-200 ${recording.subject.includes('Math') ? 'hover:border-b hover:border-blue-700' : 'hover:border-b hover:border-[#EC4899]/60'} group`}
+                            className={`flex items-center justify-between p-2 border-b border-gray-200 ${recording.subject.includes('Math') ? 'hover:border-b hover:border-blue-700' : 'hover:border-b hover:border-[#E66DFF]/60'} group`}
                             onMouseEnter={() => setHoveredRecording(index)}
                             onMouseLeave={() => setHoveredRecording(null)}
                         >
                             <div className='space-y-2'>
                                 <div className='flex flex-col'>
-                                    <p className={`text-xs ${recording.subject.includes('Math') ? 'text-blue-700 group-hover:text-blue-400' : 'text-[#EC4899] group-hover:text-[#EC4899]/60'}`}>{recording.subject}</p>
-                                    <h3 className={`font-[900] ${recording.subject.includes('Math') ? 'group-hover:text-blue-700' : 'group-hover:text-[#EC4899]/60'} text-base text-gray-800`}>{recording.title}</h3>
+                                    <p className={`text-xs ${recording.subject.includes('Math') ? 'text-blue-700 group-hover:text-blue-400' : 'text-[#E66DFF] group-hover:text-[#E66DFF]/60'}`}>{recording.subject}</p>
+                                    <h3 className={`font-[900] ${recording.subject.includes('Math') ? 'group-hover:text-blue-700' : 'group-hover:text-[#E66DFF]/60'} text-base text-gray-800`}>{recording.title}</h3>
                                 </div>
                                 <p className="text-xs text-gray-500">24th October, 2024</p>
                             </div>

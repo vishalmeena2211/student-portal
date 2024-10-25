@@ -1,35 +1,36 @@
 "use client"
 
 import React, { useState } from 'react'
-import { BellIcon, Book, Calendar, MessageCircle } from 'lucide-react'
+import { BellIcon, BookOpen, Calendar } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { PiWhatsappLogo } from "react-icons/pi";
 
 // Define the quick links data
 
 const quickLinks = [
     {
-        icon: Book,
+        icon: BookOpen,
         title: "Canvas LMS",
         description: "Click here to access your LMS portal for assignments, class recordings and notes.",
-        color: "bg-[#6366F1]",
-        hoverColor: "hover:bg-white hover:text-[#6366F1]",
+        color: "bg-[#4749B3]",
+        hoverColor: "hover:bg-white hover:text-[#4749B3]",
         newOrder: "2"
     },
     {
         icon: Calendar,
         title: "Join Live Class",
         description: "Click here to join your live class session. Please do not share this link.",
-        color: "bg-[#EC4899]",
-        hoverColor: "hover:bg-white hover:text-[#EC4899]",
+        color: "bg-[#E66DFF]",
+        hoverColor: "hover:bg-white hover:text-[#E66DFF]",
         newOrder: "1"
     },
     {
-        icon: MessageCircle,
+        icon: PiWhatsappLogo,
         title: "Contact Teacher",
         description: "Click here to contact your teacher for any doubts or concerns.",
-        color: "bg-[#818CF8]",
-        hoverColor: "hover:bg-white hover:text-[#818CF8]",
+        color: "bg-[#6669FE]",
+        hoverColor: "hover:bg-white hover:text-[#6669FE]",
         newOrder: "3"
     }
 ]

@@ -37,17 +37,17 @@ export function ClassSchedule() {
       </CardHeader>
       <CardContent className="px-4 py-6 rounded-xl bg-white space-y-2">
         {schedulesState.map((schedule, index) => {
-          const isHighlighted = schedule.color === "bg-[#EC4899]";
+          const isHighlighted = schedule.color === "bg-[#E66DFF]";
           const isLast = schedule.isLast;
 
           return (
             <div key={index} className={`${schedule.color} px-3 py-2 rounded-xl flex items-center`}>
-              <Video className={`w-5 h-5 mr-3 ${isHighlighted ? "text-white" : "text-indigo-600"} ${isLast ? "!text-[#EC4899]" : ""}`} />
+              <Video className={`w-5 h-5 mr-3 ${isHighlighted ? "text-white" : "text-indigo-600"} ${isLast ? "!text-[#E66DFF]" : ""}`} />
               <div className="flex-grow">
-                <div className={`text-xs ${isHighlighted ? "text-white/80" : "text-indigo-600"} ${isLast ? "!text-[#EC4899]" : ""}`}>{schedule.class}</div>
-                <div className={`font-bold ${isHighlighted ? "text-white" : "text-gray-800"} ${isLast ? "!text-[#EC4899]" : ""}`}>{schedule.time}</div>
+                <div className={`text-xs ${isHighlighted ? "text-white/80" : "text-indigo-600"} ${isLast ? "!text-[#E66DFF]" : ""}`}>{schedule.class}</div>
+                <div className={`font-bold ${isHighlighted ? "text-white" : "text-gray-800"} ${isLast ? "!text-[#E66DFF]" : ""}`}>{schedule.time}</div>
               </div>
-              <div className={`text-xs ${isHighlighted ? "text-white/80" : "text-gray-500"} ${isLast ? "!text-[#EC4899]" : ""}`}>{schedule.status}</div>
+              <div className={`text-xs ${isHighlighted ? "text-white/80" : "text-gray-500"} ${isLast ? "!text-[#E66DFF]" : ""}`}>{schedule.status}</div>
             </div>
           );
         })}

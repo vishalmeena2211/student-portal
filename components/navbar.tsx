@@ -1,5 +1,4 @@
 import React from 'react'
-import { Book } from 'lucide-react'
 
 // Navbar component definition
 export function Navbar() {
@@ -8,9 +7,8 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         
         {/* Logo and title section */}
-        <div className="flex items-center space-x-2">
-          <Book className="h-6 w-6" />
-          <span className="font-bold text-lg">ConnectEd</span>
+        <div>
+         <img src="/logo.png" alt="logo" />
         </div>
         
         {/* Centered title for larger screens */}
