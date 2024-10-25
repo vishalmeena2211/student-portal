@@ -1,14 +1,16 @@
-import { Play, RotateCcw, Volume2, Maximize } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Play, RotateCcw, Volume2, Maximize } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { VideoConferenceProps } from "@/lib/types";
 
-export default function VideoConference({recording}) {
+
+export default function VideoConference({ recording }: VideoConferenceProps) {
     return (
         <Card className="w-full max-w-5xl mx-auto overflow-hidden bg-[#6366F1] shadow-none border-none p-0 rounded-3xl">
-            <div className=" text-white p-4 text-center text-lg font-semibold">
-               {recording.title}
+            <div className="text-white p-4 text-center text-lg font-semibold">
+                {recording ? recording.title : "No Recording Available"}
             </div>
-            <div className="rounded-2xl">
+            <div className="rounded-3xl">
                 <div className="relative aspect-video">
                     <img
                         src="/zoom.png"
@@ -41,10 +43,9 @@ export default function VideoConference({recording}) {
                                 </Button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </Card>
-    )
+    );
 }

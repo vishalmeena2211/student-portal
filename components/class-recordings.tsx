@@ -1,27 +1,26 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Search, Play, X } from 'lucide-react'
+import { Search, Play } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import VideoConference from './video-conference'
+import { Recording } from '@/lib/types'
+import { recordings } from '@/lib/static'
 
-const recordings = [
-    { title: "Algebraic Equations", subject: "Class 7 Math", color: "bg-blue-100" },
-    { title: "Differential Maths", subject: "Class 7 Math", color: "bg-blue-100" },
-    { title: "Organic Chemistry", subject: "Class 7 Science", color: "bg-purple-100" },
-    { title: "Trigonometry 101", subject: "Class 7 Math", color: "bg-blue-100" },
-]
 
 export function ClassRecordings() {
+    // State to track the hovered recording index
     const [hoveredRecording, setHoveredRecording] = useState<number | null>(null);
+    // State to track if the video dialog is open
     const [isVideoOpen, setIsVideoOpen] = useState(false);
-    const [selectedRecording, setSelectedRecording] = useState(null);
+    // State to track the selected recording
+    const [selectedRecording, setSelectedRecording] = useState<Recording | null>(null);
 
-    const openVideo = (recording) => {
+    // Function to open the video dialog
+    const openVideo = (recording: Recording) => {
         setSelectedRecording(recording);
         setIsVideoOpen(true);
     };
@@ -37,11 +36,11 @@ export function ClassRecordings() {
                         <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                         <Input placeholder="Search for class recordings" className="pl-10 bg-white" />
                     </div>
-                    <div className="flex justify-between items-center mb-3">
+                    <div className="flex justify-between items-center">
                         <span className="text-sm text-gray-500">Filter By:</span>
-                        <div className="space-x-2 flex">
+                        <div className="md:space-x-2 space-x-1 flex">
                             <Select defaultValue="this-week">
-                                <SelectTrigger className="w-[120px] bg-white">
+                                <SelectTrigger className="md:w-[120px] w-[90px] bg-white">
                                     <SelectValue placeholder="This week" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -51,7 +50,7 @@ export function ClassRecordings() {
                                 </SelectContent>
                             </Select>
                             <Select defaultValue="all-subjects">
-                                <SelectTrigger className="w-[120px] bg-white">
+                                <SelectTrigger className="md:w-[120px] w-[90px] bg-white">
                                     <SelectValue placeholder="All subjects" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -69,7 +68,7 @@ export function ClassRecordings() {
                             onMouseEnter={() => setHoveredRecording(index)}
                             onMouseLeave={() => setHoveredRecording(null)}
                         >
-                            <div className='space-y-3'>
+                            <div className='space-y-2'>
                                 <div className='flex flex-col'>
                                     <p className={`text-xs ${recording.subject.includes('Math') ? 'text-blue-700 group-hover:text-blue-400' : 'text-[#EC4899] group-hover:text-[#EC4899]/60'}`}>{recording.subject}</p>
                                     <h3 className={`font-[900] ${recording.subject.includes('Math') ? 'group-hover:text-blue-700' : 'group-hover:text-[#EC4899]/60'} text-base text-gray-800`}>{recording.title}</h3>
@@ -81,11 +80,11 @@ export function ClassRecordings() {
                                 onClick={() => openVideo(recording)}
                             >
                                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                                    <img src="/Mask group.png" alt="" />
+                                    <img src={recording.img} alt="" />
                                     {hoveredRecording === index ? (
                                         <span className="text-white absolute text-xs">Play Now</span>
                                     ) : (
-                                        <Play className="w-5 h-5 absolute text-white bg-black/30 rounded-full p-1" fill="white" />
+                                        <Play className="w-5 h-5 absolute text-white bg-black/30 rounded-full p-1 border border-white" fill="white" />
                                     )}
                                 </div>
                             </div>
@@ -94,8 +93,8 @@ export function ClassRecordings() {
                 </CardContent>
             </Card>
 
-            <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-                <DialogContent className="max-w-5xl p-0 [&>button]:text-white md:rounded-3xl">
+            <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen} >
+                <DialogContent className="max-w-5xl p-0 [&>button]:text-white rounded-3xl border-none shadow-none bg-transparent">
                     <VideoConference recording={selectedRecording} />
                 </DialogContent>
             </Dialog>
