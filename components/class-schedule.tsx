@@ -33,7 +33,7 @@ export function ClassSchedule() {
   return (
     <Card className="col-span-1 md:col-span-3 lg:col-span-1 bg-transparent p-0 border-none shadow-none">
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-bold text-gray-800">Your Class Schedule</CardTitle>
+        <CardTitle className="md:text-2xl text-xl font-semibold text-gray-800">Your Class Schedule</CardTitle>
       </CardHeader>
       <CardContent className="px-4 py-6 rounded-xl bg-white space-y-2.5">
         {schedulesState.map((schedule, index) => {

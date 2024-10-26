@@ -31,7 +31,7 @@ export function Announcements() {
     return (
         <Card className="col-span-1 bg-transparent p-0 border-none shadow-none">
             <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-bold text-gray-800">Announcements</CardTitle>
+                <CardTitle className="md:text-2xl text-xl font-semibold text-gray-800">Announcements</CardTitle>
             </CardHeader>
             <CardContent className='bg-white px-4 py-6 rounded-2xl space-y-1'>
                 {/* Announcements for medium and larger screens */}

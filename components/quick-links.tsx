@@ -48,7 +48,7 @@ export function QuickLinks() {
         <>
             <Card className="col-span-1 bg-transparent p-0 border-none shadow-none">
                 <CardHeader className='pb-4'>
-                    <CardTitle className="text-xl font-semibold">Quick Links</CardTitle>
+                    <CardTitle className="md:text-2xl text-xl font-semibold text-gray-800">Quick Links</CardTitle>
                 </CardHeader>
                 <CardContent className="px-4 rounded-xl flex flex-col gap-2">
                     {quickLinks.map((link, index) => (
@@ -69,7 +69,7 @@ export function QuickLinks() {
                             <h2 className="m-6 text-xl font-bold leading-normal md:m-0 md:mt-1 md:text-center md:text-2xl">
                                 {link.title}
                             </h2>
-                            <p className="hidden text-center text-xs font-normal leading-3 md:block">
+                            <p className="hidden text-center text-xs font-normal leading-3 md:block px-4">
                                 {link.description}
                             </p>
                         </Card>

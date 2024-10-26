@@ -39,7 +39,7 @@ export function ClassRecordings() {
         <>
             <Card className="col-span-1 bg-transparent border-none shadow-none">
                 <CardHeader className="pb-4">
-                    <CardTitle className="text-xl font-bold text-gray-800">Access Class Recordings</CardTitle>
+                    <CardTitle className="md:text-2xl text-xl font-semibold text-gray-800">Access Class Recordings</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4 bg-white py-6 flex flex-col gap-5 rounded-2xl">
                     <div className="relative">
@@ -51,7 +51,7 @@ export function ClassRecordings() {
                         <div className="md:space-x-2 space-x-1 flex">
                             <Select defaultValue="this-week">
                                 <SelectTrigger className="md:w-[120px] w-[110px] bg-[#F3F4FF]">
-                                    <SelectValue placeholder="This week" />
+                                    <SelectValue placeholder="This week" className='placeholder:text-gray-500' />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="this-week">This week</SelectItem>
@@ -61,7 +61,7 @@ export function ClassRecordings() {
                             </Select>
                             <Select defaultValue="all-subjects">
                                 <SelectTrigger className="w-[120px] bg-[#F3F4FF]">
-                                    <SelectValue placeholder="All subjects" />
+                                    <SelectValue placeholder="All subjects" className='placeholder:text-gray-500' />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="all-subjects">All subjects</SelectItem>
