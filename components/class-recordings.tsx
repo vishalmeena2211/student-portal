@@ -9,14 +9,17 @@ import { Dialog, DialogContent } from "@/components/ui/dialog"
 import VideoConference from './video-conference'
 import { Recording } from '@/lib/types'
 import { PlayIcon } from '@/lib/icons'
+import MaskImage1 from '@/assets/Mask group.png'
+import MaskImage2 from '@/assets/Mask group pink.png'
+import Image from 'next/image'
 
 
 // Sample recordings data
 const recordings: Recording[] = [
-    { title: "Algebraic Equations", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
-    { title: "Differential Maths", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
-    { title: "Organic Chemistry", subject: "Class 7 Science", color: "bg-[#E66DFF]", img: "/Mask group pink.png" },
-    { title: "Trigonometry 101", subject: "Class 7 Math", color: "bg-blue-100", img: "/Mask group.png" },
+    { title: "Algebraic Equations", subject: "Class 7 Math", color: "bg-blue-100", img: MaskImage1 },
+    { title: "Differential Maths", subject: "Class 7 Math", color: "bg-blue-100", img: MaskImage1 },
+    { title: "Organic Chemistry", subject: "Class 7 Science", color: "bg-[#E66DFF]", img: MaskImage2 },
+    { title: "Trigonometry 101", subject: "Class 7 Math", color: "bg-blue-100", img: MaskImage1 },
 ]
 
 
@@ -90,7 +93,7 @@ export function ClassRecordings() {
                                 onClick={() => openVideo(recording)}
                             >
                                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                                    <img src={recording.img} alt="video" />
+                                    <Image src={recording.img} alt="video" fill={true} />
                                     {hoveredRecording === index ? (
                                         <span className="text-white absolute text-xs">Play Now</span>
                                     ) : (

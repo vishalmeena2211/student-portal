@@ -2,6 +2,8 @@ import { FullscreenIcon, MuteIcon, Next15sIcon, PlayIcon2, Previous15sIcon } fro
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { VideoConferenceProps } from "@/lib/types";
+import zoomImage from '@/assets/zoom.png'
+import Image from "next/image";
 
 /* eslint-disable @next/next/no-img-element */
 export default function VideoConference({ recording }: VideoConferenceProps) {
@@ -15,10 +17,11 @@ export default function VideoConference({ recording }: VideoConferenceProps) {
             </div>
             <div className="border border-[#E66DFF] rounded-3xl">
                 <div className="relative aspect-video">
-                    <img
-                        src="/zoom.png"
+                    <Image
+                        src={zoomImage}
                         alt="Video conference participants"
                         className="w-full h-full object-cover rounded-3xl"
+                        fill={true}
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-20 text-white p-2">
                         <div className="relative w-full">
