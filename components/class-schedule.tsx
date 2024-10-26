@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video } from 'lucide-react';
 import { schedules } from '@/lib/static';
+import { VideoCameraIcon } from '@/lib/icons';
 
 export function ClassSchedule() {
   // State to manage the schedules to be displayed
@@ -35,14 +35,14 @@ export function ClassSchedule() {
       <CardHeader className="pb-2">
         <CardTitle className="text-xl font-bold text-gray-800">Your Class Schedule</CardTitle>
       </CardHeader>
-      <CardContent className="px-4 py-6 rounded-xl bg-white space-y-2">
+      <CardContent className="px-4 py-6 rounded-xl bg-white space-y-2.5">
         {schedulesState.map((schedule, index) => {
           const isHighlighted = schedule.color === "bg-[#E66DFF]";
           const isLast = schedule.isLast;
 
           return (
-            <div key={index} className={`${schedule.color} px-3 py-2 rounded-xl flex items-center`}>
-              <Video className={`w-5 h-5 mr-3 ${isHighlighted ? "text-white" : "text-indigo-600"} ${isLast ? "!text-[#E66DFF]" : ""}`} />
+            <div key={index} className={`${schedule.color} px-3 py-3 rounded-md flex items-center`}>
+              <span className={`w-5 h-5 mr-3 ${isHighlighted ? "text-white" : "text-indigo-600"} ${isLast ? "!text-[#E66DFF]" : ""}`} >{VideoCameraIcon}</span>
               <div className="flex-grow">
                 <div className={`text-xs ${isHighlighted ? "text-white/80" : "text-indigo-600"} ${isLast ? "!text-[#E66DFF]" : ""}`}>{schedule.class}</div>
                 <div className={`font-bold ${isHighlighted ? "text-white" : "text-gray-800"} ${isLast ? "!text-[#E66DFF]" : ""}`}>{schedule.time}</div>

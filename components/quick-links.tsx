@@ -1,37 +1,34 @@
 "use client"
 
 import React, { useState } from 'react'
-import { BellIcon, BookOpen, Calendar } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { PiWhatsappLogo } from "react-icons/pi";
+import cn from 'classnames';
+import { BellIcon, BookIcon, ContactIcon, WhatsAppIcon } from '@/lib/icons'
 
 // Define the quick links data
-
 const quickLinks = [
     {
-        icon: BookOpen,
+        icon: <>{BookIcon}</>,
         title: "Canvas LMS",
         description: "Click here to access your LMS portal for assignments, class recordings and notes.",
         color: "bg-[#4749B3]",
         hoverColor: "hover:bg-white hover:text-[#4749B3]",
-        newOrder: "2"
     },
     {
-        icon: Calendar,
+        icon: <>{ContactIcon}</>,
         title: "Join Live Class",
         description: "Click here to join your live class session. Please do not share this link.",
-        color: "bg-[#E66DFF]",
+        color: "bg-[#E66DFF] order-first md:order-none",
         hoverColor: "hover:bg-white hover:text-[#E66DFF]",
-        newOrder: "1"
     },
     {
-        icon: PiWhatsappLogo,
+        icon: <>{WhatsAppIcon}</>,
         title: "Contact Teacher",
         description: "Click here to contact your teacher for any doubts or concerns.",
         color: "bg-[#6669FE]",
         hoverColor: "hover:bg-white hover:text-[#6669FE]",
-        newOrder: "3"
     }
 ]
 
@@ -55,29 +52,37 @@ export function QuickLinks() {
                 </CardHeader>
                 <CardContent className="px-4 rounded-xl flex flex-col gap-2">
                     {quickLinks.map((link, index) => (
-                        <button
+                        <Card
                             key={index}
-                            className={`w-full p-4 text-white ${link.color} ${link.hoverColor} rounded-2xl transition-colors duration-200 ease-in-out order-${link.newOrder} md:order-none`}
+                            className={cn(
+                                "flex cursor-pointer text-white items-center md:flex-col md:justify-center md:px-[61px] md:py-[40px] transition-all duration-500 ease-in-out",
+                                link.color,
+                                link.hoverColor,
+                            )}
                             onClick={link.title === "Join Live Class" ? handleLiveClassClick : undefined}
                         >
-                            <div className="flex md:flex-col items-center">
-                                <div className="flex items-center w-full md:flex-col md:items-center">
-                                    <link.icon className="md:w-12 md:h-12 w-6 h-6 md:mb-4 mr-4 md:mr-0" />
-                                    <span className="md:text-2xl text-xl font-semibold md:mb-2 text-left md:text-center flex-grow">{link.title}</span>
+                            <div className="flex aspect-square h-full flex-shrink-0 items-center justify-center rounded-lg bg-white/20 px-4 py-10 md:w-10 md:bg-transparent md:p-0">
+                                <div className="aspect-square w-9 md:h-[26px] md:w-[26px]">
+                                    {link.icon}
                                 </div>
-                                <span className="text-sm hidden md:flex">{link.description}</span>
                             </div>
-                        </button>
+                            <h2 className="m-6 text-xl font-bold leading-normal md:m-0 md:mt-1 md:text-center md:text-2xl">
+                                {link.title}
+                            </h2>
+                            <p className="hidden text-center text-xs font-normal leading-3 md:block">
+                                {link.description}
+                            </p>
+                        </Card>
                     ))}
                 </CardContent>
             </Card>
 
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 {dialogToggle ? (
-                    <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-transparent border-none shadow-none [&>button]:hidden">
+                    <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-transparent border-none outline-none shadow-none [&>button]:hidden">
                         <DialogHeader className="text-[#FF10F0] p-4 font-bold rounded-3xl bg-white">
                             <DialogTitle className="flex items-center gap-2 text-lg font-normal">
-                                <BellIcon className="h-5 w-5" />
+                                <span className='h-5 w-5'>{BellIcon}</span>
                                 <span className='font-bold'>Class 7 Math is starting in 1 hour, 34 minutes.</span>
                             </DialogTitle>
                         </DialogHeader>

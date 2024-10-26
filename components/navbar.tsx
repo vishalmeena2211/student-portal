@@ -1,36 +1,24 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import logo from '/public/logo.png';
 
-// Navbar component definition
 export function Navbar() {
   return (
-    <nav className="bg-[#6366F1] text-white p-4">
-      <div className="container mx-auto flex items-center justify-between">
-        
-        {/* Logo and title section */}
-        <div>
-         <img src="/logo.png" alt="logo" />
-        </div>
-        
-        {/* Centered title for larger screens */}
-        <div className="hidden md:block text-center text-xl font-semibold">
-          Student Portal
-        </div>
-        
-        {/* User information section */}
-        <div className="flex items-end flex-col">
-          
-          {/* Title for smaller screens */}
-          <div className="md:hidden text-lg font-semibold">
-            Student Portal
-          </div>
-          
-          {/* User greeting and class information for larger screens */}
-          <div className="hidden md:block text-right">
-            <div className="font-semibold">Hello, Gabrisa!</div>
-            <div className="text-sm">Class 7, Math + Science</div>
-          </div>
-        </div>
+    <nav className="flex h-[98px] items-center justify-between px-[20px] text-white md:px-[50px] bg-[#6366F1]">
+      <div>
+        <Image src={logo} width={96.67} height={49.03} alt={"ConnectEd"} />
+      </div>
+      <h1 className="text-center text-xl font-bold leading-tight md:text-[32px]">
+        Student Portal
+      </h1>
+      <div className="hidden md:block">
+        <p className="text-right text-[23.333px] font-semibold">
+          Hello, Gabrisa!
+        </p>
+        <p className="text-right text-xs leading-none">
+          Class 7, Math + Science
+        </p>
       </div>
     </nav>
-  )
+  );
 }

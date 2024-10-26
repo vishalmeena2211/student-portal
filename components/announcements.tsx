@@ -38,8 +38,8 @@ export function Announcements() {
                 <div className="hidden md:block space-y-2">
                     {announcements.map((announcement, index) => (
                         <div key={index} className="flex items-center space-x-3 bg-[#F3F4FF] px-3 py-2 rounded-lg">
-                            <announcement.icon className="w-5 h-5 text-indigo-600 mt-0.5" />
-                            <p className="text-sm text-indigo-600">{announcement.text}</p>
+                            <announcement.icon className="w-5 h-5 text-[#4749b3] mt-0.5" />
+                            <p className="text-sm font-light text-[#4749b3]">{announcement.text}</p>
                         </div>
                     ))}
                 </div>
@@ -48,8 +48,8 @@ export function Announcements() {
                     <Slider {...sliderSettings}>
                         {announcements.map((announcement, index) => (
                             <div key={index} className="!flex !items-center w-full h-full !space-x-3 bg-[#F3F4FF] px-3 py-2 rounded-lg">
-                                <announcement.icon className="w-5 h-5 text-indigo-600 mt-0.5" />
-                                <p className="text-sm w-fit text-indigo-600">{announcement.text}</p>
+                                <announcement.icon className="w-5 h-5 text-[#4749b3] mt-0.5" />
+                                <p className="text-sm font-light w-fit text-[#4749b3]">{announcement.text}</p>
                             </div>
                         ))}
                     </Slider>

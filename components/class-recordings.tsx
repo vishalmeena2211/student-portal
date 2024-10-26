@@ -1,13 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Search, Play } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import VideoConference from './video-conference'
 import { Recording } from '@/lib/types'
+import { PlayIcon } from '@/lib/icons'
+
 
 // Sample recordings data
 const recordings: Recording[] = [
@@ -39,7 +41,7 @@ export function ClassRecordings() {
                 <CardHeader className="pb-4">
                     <CardTitle className="text-xl font-bold text-gray-800">Access Class Recordings</CardTitle>
                 </CardHeader>
-                <CardContent className="p-4 bg-white py-6 flex flex-col gap-4 rounded-2xl">
+                <CardContent className="p-4 bg-white py-6 flex flex-col gap-5 rounded-2xl">
                     <div className="relative">
                         <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                         <Input placeholder="Search for class recordings" className="pl-10 bg-[#F3F4FF]" />
@@ -48,7 +50,7 @@ export function ClassRecordings() {
                         <span className="text-sm text-gray-500">Filter By:</span>
                         <div className="md:space-x-2 space-x-1 flex">
                             <Select defaultValue="this-week">
-                                <SelectTrigger className="md:w-[120px] w-[90px] bg-[#F3F4FF]">
+                                <SelectTrigger className="md:w-[120px] w-[110px] bg-[#F3F4FF]">
                                     <SelectValue placeholder="This week" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -58,7 +60,7 @@ export function ClassRecordings() {
                                 </SelectContent>
                             </Select>
                             <Select defaultValue="all-subjects">
-                                <SelectTrigger className="md:w-[120px] w-[90px] bg-[#F3F4FF]">
+                                <SelectTrigger className="w-[120px] bg-[#F3F4FF]">
                                     <SelectValue placeholder="All subjects" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -76,7 +78,7 @@ export function ClassRecordings() {
                             onMouseEnter={() => setHoveredRecording(index)}
                             onMouseLeave={() => setHoveredRecording(null)}
                         >
-                            <div className='space-y-2'>
+                            <div className='space-y-3'>
                                 <div className='flex flex-col'>
                                     <p className={`text-xs ${recording.subject.includes('Math') ? 'text-blue-700 group-hover:text-blue-400' : 'text-[#E66DFF] group-hover:text-[#E66DFF]/60'}`}>{recording.subject}</p>
                                     <h3 className={`font-[900] ${recording.subject.includes('Math') ? 'group-hover:text-blue-700' : 'group-hover:text-[#E66DFF]/60'} text-base text-gray-800`}>{recording.title}</h3>
@@ -88,11 +90,11 @@ export function ClassRecordings() {
                                 onClick={() => openVideo(recording)}
                             >
                                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                                    <img src={recording.img} alt="" />
+                                    <img src={recording.img} alt="video" />
                                     {hoveredRecording === index ? (
                                         <span className="text-white absolute text-xs">Play Now</span>
                                     ) : (
-                                        <Play className="w-5 h-5 absolute text-white bg-black/30 rounded-full p-1 border border-white" fill="white" />
+                                        <span className="absolute text-white" >{PlayIcon}</span>
                                     )}
                                 </div>
                             </div>
