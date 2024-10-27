@@ -54,7 +54,7 @@ export function ClassRecordings() {
                         <div className="md:space-x-2 space-x-1 flex">
                             <Select defaultValue="this-week">
                                 <SelectTrigger className="md:w-[120px] w-[110px] bg-[#F3F4FF]">
-                                    <SelectValue placeholder="This week" className='placeholder:text-gray-500' />
+                                    <SelectValue placeholder="This week" className='!placeholder:text-gray-500/20 !text-gray-500/20' />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="this-week">This week</SelectItem>
@@ -83,8 +83,8 @@ export function ClassRecordings() {
                         >
                             <div className='space-y-3'>
                                 <div className='flex flex-col'>
-                                    <p className={`text-xs ${recording.subject.includes('Math') ? 'text-blue-700 group-hover:text-blue-400' : 'text-[#E66DFF] group-hover:text-[#E66DFF]/60'}`}>{recording.subject}</p>
-                                    <h3 className={`font-[900] ${recording.subject.includes('Math') ? 'group-hover:text-blue-700' : 'group-hover:text-[#E66DFF]/60'} text-base text-gray-800`}>{recording.title}</h3>
+                                    <p className={`text-xs ${recording.subject.includes('Math') ? 'text-blue-700 group-hover:text-blue-400' : 'text-[#E66DFF] group-hover:text-[#E66DFF]/80'}`}>{recording.subject}</p>
+                                    <h3 className={`font-[900] ${recording.subject.includes('Math') ? 'group-hover:text-blue-700' : 'group-hover:text-[#E66DFF]'} text-base text-gray-800`}>{recording.title}</h3>
                                 </div>
                                 <p className="text-xs text-gray-500">24th October, 2024</p>
                             </div>

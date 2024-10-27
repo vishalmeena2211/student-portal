@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Calendar } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import cn from 'classnames';
@@ -79,24 +78,24 @@ export function QuickLinks() {
 
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 {dialogToggle ? (
-                    <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-transparent border-none outline-none shadow-none [&>button]:hidden">
+                    <DialogContent className="sm:max-w-md p-2 overflow-hidden bg-transparent border-none outline-none shadow-none [&>button]:hidden">
                         <DialogHeader className="text-[#FF10F0] p-4 font-bold rounded-3xl bg-white">
                             <DialogTitle className="flex items-center gap-2 text-lg font-normal">
                                 <span className='h-5 w-5'>{BellIcon}</span>
-                                <span className='font-bold'>Class 7 Math is starting in 1 hour, 34 minutes.</span>
+                                <span className='font-bold md:text-lg text-sm'>Class 7 Math is starting in 1 hour, 34 minutes.</span>
                             </DialogTitle>
                         </DialogHeader>
                         <Card className="border-0 shadow-none w-10/12 mx-auto">
                             <CardContent className="pt-6 pb-4 px-4">
                                 <div className="flex flex-col items-center text-center">
-                                    <p className="text-2xl font-semibold text-blue-700 mb-4 px-6 ">
+                                    <p className="md:text-2xl text-xl font-semibold text-blue-700 mb-4 px-6 ">
                                         You can join the live class<br />
                                         5 minutes before it<br />
                                         starts. Please wait.
                                     </p>
                                     <p
                                         onClick={() => setIsDialogOpen(false)}
-                                        className="w-24 rounded-full bg-blue-600 text-white hover:bg-blue-700 px-3 py-2"
+                                        className="w-24 rounded-full bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 cursor-pointer"
                                     >
                                         Okay
                                     </p>
@@ -105,9 +104,9 @@ export function QuickLinks() {
                         </Card>
                     </DialogContent>
                 ) : (
-                    <DialogContent className="sm:max-w-[425px] bg-gray-500 text-white border-none [&>button]:hidden">
+                    <DialogContent className="sm:max-w-[425px] bg-gray-500 text-white border-none outline-none shadow-none [&>button]:hidden">
                         <div className="flex flex-col items-center justify-center p-6 text-center">
-                            <Calendar className="w-12 h-12 mb-4" />
+                            <span className="w-12 h-12 mb-4" >{ContactIcon}</span>
                             <h2 className="text-2xl font-bold mb-2">No Live Classes</h2>
                             <p className="text-sm">You have no live classes scheduled for today.</p>
                         </div>
